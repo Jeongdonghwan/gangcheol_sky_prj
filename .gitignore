@@ -1,0 +1,7 @@
+node_modules
+.next
+out
+public/og
+__pycache__/
+tsconfig.tsbuildinfo
+_preview/

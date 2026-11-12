@@ -1,0 +1,356 @@
+{
+ "_comment": "블로그 키워드 큐(스카이차 작업 질문형 롱테일, 지역+장비 키워드 금지). written = 글은 있으나 공개일 미정(date 비움) → scripts/drip/schedule_posts.py <오픈일> 이 date 를 채우고 done 으로 바꾼다. pending = 아직 안 쓴 키워드.",
+ "total": 50,
+ "queue": [
+  {
+   "keyword": "스카이차 부르기 전 확인할 것",
+   "pattern": "prep",
+   "status": "written",
+   "publishedSlug": null,
+   "publishedAt": null
+  },
+  {
+   "keyword": "간판 교체 스카이차 작업 순서",
+   "pattern": "sign",
+   "status": "written",
+   "publishedSlug": null,
+   "publishedAt": null
+  },
+  {
+   "keyword": "간판 철거 고소작업 준비",
+   "pattern": "sign",
+   "status": "written",
+   "publishedSlug": null,
+   "publishedAt": null
+  },
+  {
+   "keyword": "돌출 간판 보수 고소작업",
+   "pattern": "sign",
+   "status": "written",
+   "publishedSlug": null,
+   "publishedAt": null
+  },
+  {
+   "keyword": "상가 LED 간판 교체 높이 작업",
+   "pattern": "sign",
+   "status": "written",
+   "publishedSlug": null,
+   "publishedAt": null
+  },
+  {
+   "keyword": "외벽 실리콘 보수 시기",
+   "pattern": "silicone",
+   "status": "written",
+   "publishedSlug": null,
+   "publishedAt": null
+  },
+  {
+   "keyword": "창문 실리콘 누수 외부 작업",
+   "pattern": "silicone",
+   "status": "written",
+   "publishedSlug": null,
+   "publishedAt": null
+  },
+  {
+   "keyword": "창호 코킹 재시공 순서",
+   "pattern": "silicone",
+   "status": "written",
+   "publishedSlug": null,
+   "publishedAt": null
+  },
+  {
+   "keyword": "외벽 줄눈 실리콘 교체 신호",
+   "pattern": "silicone",
+   "status": "written",
+   "publishedSlug": null,
+   "publishedAt": null
+  },
+  {
+   "keyword": "고층 유리창 교체 외부 작업",
+   "pattern": "glass",
+   "status": "written",
+   "publishedSlug": null,
+   "publishedAt": null
+  },
+  {
+   "keyword": "샷시 교체 외부 작업 준비",
+   "pattern": "glass",
+   "status": "written",
+   "publishedSlug": null,
+   "publishedAt": null
+  },
+  {
+   "keyword": "깨진 외벽 유리 임시 조치",
+   "pattern": "glass",
+   "status": "written",
+   "publishedSlug": null,
+   "publishedAt": null
+  },
+  {
+   "keyword": "외벽 타일 탈락 보수 방법",
+   "pattern": "tile",
+   "status": "written",
+   "publishedSlug": null,
+   "publishedAt": null
+  },
+  {
+   "keyword": "외벽 크랙 보수 고소작업",
+   "pattern": "tile",
+   "status": "written",
+   "publishedSlug": null,
+   "publishedAt": null
+  },
+  {
+   "keyword": "외벽 누수 원인 찾는 순서",
+   "pattern": "tile",
+   "status": "written",
+   "publishedSlug": null,
+   "publishedAt": null
+  },
+  {
+   "keyword": "외벽 페인트 바스켓 작업 범위",
+   "pattern": "paint",
+   "status": "written",
+   "publishedSlug": null,
+   "publishedAt": null
+  },
+  {
+   "keyword": "건물 외벽 청소 고소작업",
+   "pattern": "paint",
+   "status": "written",
+   "publishedSlug": null,
+   "publishedAt": null
+  },
+  {
+   "keyword": "외벽 방수 도장 계절",
+   "pattern": "paint",
+   "status": "written",
+   "publishedSlug": null,
+   "publishedAt": null
+  },
+  {
+   "keyword": "스카이차와 사다리차 차이",
+   "pattern": "compare",
+   "status": "written",
+   "publishedSlug": null,
+   "publishedAt": null
+  },
+  {
+   "keyword": "스카이차와 고소작업대 차이",
+   "pattern": "compare",
+   "status": "written",
+   "publishedSlug": null,
+   "publishedAt": null
+  },
+  {
+   "keyword": "스카이차와 크레인 차이",
+   "pattern": "compare",
+   "status": "written",
+   "publishedSlug": null,
+   "publishedAt": null
+  },
+  {
+   "keyword": "스카이차 아웃트리거 설치 공간",
+   "pattern": "site",
+   "status": "written",
+   "publishedSlug": null,
+   "publishedAt": null
+  },
+  {
+   "keyword": "좁은 골목 스카이차 진입 확인",
+   "pattern": "site",
+   "status": "written",
+   "publishedSlug": null,
+   "publishedAt": null
+  },
+  {
+   "keyword": "아파트 단지 고소작업 관리사무소 협의",
+   "pattern": "site",
+   "status": "written",
+   "publishedSlug": null,
+   "publishedAt": null
+  },
+  {
+   "keyword": "도로 점용 허가 고소작업",
+   "pattern": "site",
+   "status": "written",
+   "publishedSlug": null,
+   "publishedAt": null
+  },
+  {
+   "keyword": "고소작업 주변 통제 방법",
+   "pattern": "site",
+   "status": "written",
+   "publishedSlug": null,
+   "publishedAt": null
+  },
+  {
+   "keyword": "전선 가까운 곳 고소작업 주의",
+   "pattern": "site",
+   "status": "written",
+   "publishedSlug": null,
+   "publishedAt": null
+  },
+  {
+   "keyword": "비 오는 날 스카이차 작업",
+   "pattern": "weather",
+   "status": "written",
+   "publishedSlug": null,
+   "publishedAt": null
+  },
+  {
+   "keyword": "바람 부는 날 고소작업 중지",
+   "pattern": "weather",
+   "status": "written",
+   "publishedSlug": null,
+   "publishedAt": null
+  },
+  {
+   "keyword": "겨울철 외벽 작업 주의점",
+   "pattern": "weather",
+   "status": "written",
+   "publishedSlug": null,
+   "publishedAt": null
+  },
+  {
+   "keyword": "여름철 고소작업 시간대",
+   "pattern": "weather",
+   "status": "written",
+   "publishedSlug": null,
+   "publishedAt": null
+  },
+  {
+   "keyword": "가로수 가지치기 고소작업",
+   "pattern": "landscape",
+   "status": "written",
+   "publishedSlug": null,
+   "publishedAt": null
+  },
+  {
+   "keyword": "조경수 절단 작업 순서",
+   "pattern": "landscape",
+   "status": "written",
+   "publishedSlug": null,
+   "publishedAt": null
+  },
+  {
+   "keyword": "나무 전지 시기와 높이 작업",
+   "pattern": "landscape",
+   "status": "written",
+   "publishedSlug": null,
+   "publishedAt": null
+  },
+  {
+   "keyword": "자재 상하차 스카이차로 할 때",
+   "pattern": "load",
+   "status": "written",
+   "publishedSlug": null,
+   "publishedAt": null
+  },
+  {
+   "keyword": "중량물 상하차 전 확인",
+   "pattern": "load",
+   "status": "written",
+   "publishedSlug": null,
+   "publishedAt": null
+  },
+  {
+   "keyword": "이삿짐 고층 운반 방법 비교",
+   "pattern": "load",
+   "status": "written",
+   "publishedSlug": null,
+   "publishedAt": null
+  },
+  {
+   "keyword": "스카이차 비용이 달라지는 이유",
+   "pattern": "cost",
+   "status": "written",
+   "publishedSlug": null,
+   "publishedAt": null
+  },
+  {
+   "keyword": "스카이차 견적 받을 때 알려줄 정보",
+   "pattern": "cost",
+   "status": "written",
+   "publishedSlug": null,
+   "publishedAt": null
+  },
+  {
+   "keyword": "스카이차 작업 시간 정하는 법",
+   "pattern": "cost",
+   "status": "written",
+   "publishedSlug": null,
+   "publishedAt": null
+  },
+  {
+   "keyword": "스카이차 기사 포함 여부",
+   "pattern": "cost",
+   "status": "written",
+   "publishedSlug": null,
+   "publishedAt": null
+  },
+  {
+   "keyword": "고소작업 안전대 착용",
+   "pattern": "safety",
+   "status": "written",
+   "publishedSlug": null,
+   "publishedAt": null
+  },
+  {
+   "keyword": "스카이차 바스켓 작업 안전 수칙",
+   "pattern": "safety",
+   "status": "written",
+   "publishedSlug": null,
+   "publishedAt": null
+  },
+  {
+   "keyword": "공장 지붕 보수 고소작업",
+   "pattern": "repair",
+   "status": "written",
+   "publishedSlug": null,
+   "publishedAt": null
+  },
+  {
+   "keyword": "옥상 시설 점검 고소작업",
+   "pattern": "repair",
+   "status": "written",
+   "publishedSlug": null,
+   "publishedAt": null
+  },
+  {
+   "keyword": "현수막 높은 곳 설치 방법",
+   "pattern": "sign",
+   "status": "pending",
+   "publishedSlug": null,
+   "publishedAt": null
+  },
+  {
+   "keyword": "상가 차양 어닝 설치 높이 작업",
+   "pattern": "repair",
+   "status": "pending",
+   "publishedSlug": null,
+   "publishedAt": null
+  },
+  {
+   "keyword": "신축 건물 준공 전 외벽 손보기",
+   "pattern": "repair",
+   "status": "pending",
+   "publishedSlug": null,
+   "publishedAt": null
+  },
+  {
+   "keyword": "빗물받이 홈통 보수 고소작업",
+   "pattern": "repair",
+   "status": "pending",
+   "publishedSlug": null,
+   "publishedAt": null
+  },
+  {
+   "keyword": "외벽 간판 철거 후 마감",
+   "pattern": "sign",
+   "status": "pending",
+   "publishedSlug": null,
+   "publishedAt": null
+  }
+ ]
+}
