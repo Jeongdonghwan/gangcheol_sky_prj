@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: http://sky.172.237.20.244.sslip.io/sitemap.xml
