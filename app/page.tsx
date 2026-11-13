@@ -4,11 +4,11 @@ import { OPEN_PAGES, PHOTOS, REGIONS, openHubs, hubPath, hubEncodedPath, hubPage
 import { WORKS } from '../lib/compose';
 import { getPosts, postPath } from '../lib/blog';
 import { breadcrumbJsonLd, faqJsonLd, itemListJsonLd } from '../lib/jsonld';
-import { BRAND, CONTACT, BUSINESS, shareMeta } from '../lib/site';
-import { BigCall, Btn, HeroBg, IconArrow, JsonLd, Photo, SectionHead } from '../components/Common';
+import { BRAND, CONTACT, shareMeta } from '../lib/site';
+import { BigCall, Btn, IconArrow, JsonLd, Photo, SectionHead } from '../components/Common';
 
 const TITLE = `${BRAND} | 인천·김포·부천 스카이차 임대·대여·작업`;
-const DESC = `인천 검단구 스카이차 업체 ${BRAND}. 외벽·고층, 간판 설치·해체, 유리·샷시, 실리콘, 자재 운반, 중량물 상하차를 기사가 직접 작업합니다. 24시간·연중무휴 ${CONTACT.phone}.`;
+const DESC = `인천·김포·부천 스카이차 업체 ${BRAND}. 외벽·고층, 간판 설치·해체, 유리·샷시, 실리콘, 자재 운반, 중량물 상하차를 기사가 직접 작업합니다. 24시간·연중무휴 ${CONTACT.phone}.`;
 export const metadata: Metadata = {
   title: TITLE,
   description: DESC,
@@ -23,11 +23,15 @@ const WAYS: [string, string][] = [
   ['출장', '인천 전지역 및 기타지역 출장상담(영업안내), 서울·경기·인천 출장(네이버 플레이스 소개)'],
 ];
 
+// 같은 사진을 한 페이지에 두 번 쓰지 않는다: 히어로 3장 · 소개 c1 · 나머지는 사진 섹션
+const HERO_IDS = ['p1', 'p3', 'p4'];
+const GALLERY = PHOTOS.filter((ph) => !HERO_IDS.includes(ph.id) && ph.id !== 'c1');
+
 const FAQ = [
   { q: '보유 차량 톤수와 작업 높이는 어떻게 되나요?', a: '홈페이지와 플레이스에 톤수·작업 높이가 적혀 있지 않습니다. 건물 층수와 차 세울 자리를 알려 주시면 맞는 차량인지 통화로 확인합니다.' },
   { q: '밤에도 전화가 되나요?', a: `네이버 플레이스에 24시간 영업·연중무휴로 등록되어 있습니다. ${CONTACT.phone}으로 연락 주세요.` },
-  { q: '김포·부천도 오나요?', a: '플레이스 소개에 서울·경기·인천 출장이 적혀 있고, 김포·부천 현장도 상담합니다. 사업장이 인천 검단구라 김포와 맞닿아 있습니다.' },
-  { q: '비용은 어떻게 정해지나요?', a: '작업 시간, 높이, 이동 거리, 작업 내용, 도로 통제 여부로 정해집니다. 고정 요금표는 공개하지 않았으니 현장 정보를 알려 주세요.' },
+  { q: '김포·부천도 오나요?', a: '플레이스 소개에 서울·경기·인천 출장이 적혀 있고, 김포·부천 현장도 방문 견적과 작업이 가능합니다.' },
+  { q: '비용은 어떻게 정해지나요?', a: '작업 시간, 높이, 작업 내용, 도로 통제 여부로 정해집니다. 고정 요금표는 공개하지 않았으니 현장 정보를 알려 주세요.' },
   { q: '사다리차와 다른가요?', a: '사다리차는 짐을 올리는 차이고, 스카이차는 바스켓에 사람이 타고 높은 곳에서 직접 일하는 차입니다. 외벽·간판·유리·실리콘 일은 스카이차로 합니다.' },
 ];
 
@@ -45,23 +49,42 @@ export default function Home() {
         itemListJsonLd(top.slice(0, 30).map((p) => ({ name: p.kw, path: pageEncodedPath(p) }))),
       ]} />
 
-      <section className="hero hero-home">
-        <HeroBg ids={['p1', 'p3', 'p4', 'p2']} alts={[`${BRAND} 스카이차 - 차체에 010-5575-8225 표기`]} />
+      <section className="hero hero-split hero-home">
         <div className="wrap hero-in">
-          <h1>인천·김포·부천<br /><em>스카이차 임대·작업</em></h1>
-          <p className="hero-lead">{BRAND}는 인천 검단구에 사업장을 둔 스카이차 업체입니다. 외벽·고층, 간판 설치·해체, 유리·샷시, 실리콘, 자재 운반을 차와 기사가 함께 가서 바스켓에서 직접 합니다.</p>
-          <BigCall />
-          <p className="hero-sub-link"><a href="#works" className="lnk">바스켓 작업 목록 <IconArrow /></a></p>
-          <dl className="hero-specs">
-            <div><dt>사업장</dt><dd>{BUSINESS.address}</dd></div>
-            <div><dt>출장</dt><dd>인천 전지역 · 김포 · 부천</dd></div>
-            <div><dt>상담</dt><dd>{CONTACT.hours}</dd></div>
-          </dl>
-          <p className="hero-cap">{PHOTOS[0].caption}</p>
+          <div className="hero-top">
+            <h1>인천·김포·부천<br /><em>스카이차 임대·작업</em></h1>
+            <p className="hero-lead">{BRAND}는 인천·김포·부천 현장을 방문하는 스카이차 업체입니다. 외벽·고층, 간판 설치·해체, 유리·샷시, 실리콘, 자재 운반을 차와 기사가 함께 가서 바스켓에서 직접 합니다.</p>
+          </div>
+          <div className="hero-ph mosaic">
+            {HERO_IDS.map((id, i) => <figure key={id} className={`m${i + 1}`}><Photo id={id} lazy={false} /></figure>)}
+          </div>
+          <div className="hero-bot">
+            <BigCall />
+            <p className="hero-sub-link"><a href="#works" className="lnk">바스켓 작업 목록 <IconArrow /></a></p>
+            <dl className="hero-specs">
+              <div><dt>작업</dt><dd>외벽 · 간판 · 유리 · 실리콘</dd></div>
+              <div><dt>출장</dt><dd>인천 전지역 · 김포 · 부천</dd></div>
+              <div><dt>상담</dt><dd>{CONTACT.hours}</dd></div>
+            </dl>
+          </div>
         </div>
       </section>
 
       <section className="sec steel">
+        <div className="wrap">
+          <SectionHead center title="작업 사진" sub="홈페이지 작업사진 게시판과 인사말·영업안내에 실린 실제 차량입니다. 촬영 장소는 표기되어 있지 않습니다." />
+          <div className="gallery">
+            {GALLERY.map((ph, i) => (
+              <figure key={ph.id} className={`mask g-${ph.w >= 560 ? 'w' : 't'}`} data-reveal style={{ transitionDelay: `${(i % 4) * 80}ms`, ['--w' as string]: `${ph.w}px` }}>
+                <Photo id={ph.id} />
+                <figcaption>{ph.caption}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="sec">
         <div className="wrap about">
           <figure className="about-ph mask" data-reveal><Photo id="c1" /></figure>
           <div>
@@ -86,20 +109,6 @@ export default function Home() {
               </li>
             ))}
           </ol>
-        </div>
-      </section>
-
-      <section className="sec dark">
-        <div className="wrap">
-          <SectionHead center title="작업 사진" sub="홈페이지 작업사진 게시판과 인사말·영업안내에 실린 실제 차량입니다. 촬영 장소는 표기되어 있지 않습니다." />
-          <div className="gallery">
-            {PHOTOS.map((ph, i) => (
-              <figure key={ph.id} className={`mask g-${ph.w >= 560 ? 'w' : 't'}`} data-reveal style={{ transitionDelay: `${(i % 4) * 80}ms`, ['--w' as string]: `${ph.w}px` }}>
-                <Photo id={ph.id} />
-                <figcaption>{ph.caption}</figcaption>
-              </figure>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -158,7 +167,7 @@ export default function Home() {
       <section className="closing">
         <div className="wrap" data-reveal>
           <h2>높은 곳 일, 층수와 주소부터 알려 주세요</h2>
-          <p>{BRAND} · {BUSINESS.address} · {CONTACT.hours}</p>
+          <p>{BRAND} · 인천 전지역 · 김포 · 부천 방문 · {CONTACT.hours}</p>
           <BigCall />
         </div>
       </section>

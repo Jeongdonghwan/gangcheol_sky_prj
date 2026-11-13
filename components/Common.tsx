@@ -39,8 +39,8 @@ export const SectionHead = ({ title, sub, center = false }: { title: string; sub
 );
 
 // 히어로 배경 — 실제 사진을 원본 높이 가까이 이어 붙이고(늘리지 않음) 위에 어둡게 깐다
-export const HeroBg = ({ ids, alts = [], one = false }: { ids: string[]; alts?: string[]; one?: boolean }) => (
-  <div className={one ? 'hero-bg one' : 'hero-bg'}>
+export const HeroBg = ({ ids, alts = [] }: { ids: string[]; alts?: string[] }) => (
+  <div className="hero-bg">
     <div className="hero-strip">{ids.map((id, i) => <Photo key={id} id={id} lazy={false} alt={alts[i]} />)}</div>
     <span className="hero-shade" aria-hidden="true" />
   </div>

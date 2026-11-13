@@ -5,7 +5,7 @@ import { OPEN_PAGES, REGIONS, getPage, pagePath, pageEncodedPath, hubPath, hubEn
 import { compose } from '../../lib/compose';
 import { breadcrumbJsonLd, faqJsonLd, itemListJsonLd, serviceJsonLd } from '../../lib/jsonld';
 import { BRAND, shareMeta } from '../../lib/site';
-import { BigCall, Btn, HeroBg, IconArrow, JsonLd, Photo, SectionHead } from '../../components/Common';
+import { BigCall, Btn, IconArrow, JsonLd, Photo, SectionHead } from '../../components/Common';
 
 export const dynamicParams = false;
 
@@ -46,23 +46,37 @@ export default function KeywordPage({ params }: { params: { slug: string } }) {
         itemListJsonLd(relList.length ? relList : [{ name: `${G.name} 지역 안내`, path: hubEncodedPath(p.gu) }]),
       ]} />
 
-      <section className="hero">
-        <HeroBg one ids={[c.hero.id]} alts={[`${p.kw} - ${c.hero.caption}`]} />
+      <section className="hero hero-split">
         <div className="wrap hero-in">
-          <nav className="crumbs" aria-label="경로">
-            <span><Link href="/">홈</Link></span><span><i>/</i><Link href="/area/">지역</Link></span><span><i>/</i><Link href={hubPath(p.gu)}>{G.name}</Link></span>
-          </nav>
-          <h1>{p.kw}</h1>
-          <p className="hero-lead">{c.lead}</p>
-          <BigCall note={c.callNote} />
-          <dl className="hero-specs">{c.specs.map(([k, v]) => <div key={k}><dt>{k}</dt><dd>{v}</dd></div>)}</dl>
-          <p className="hero-cap">{c.hero.caption}</p>
+          <div className="hero-top">
+            <nav className="crumbs" aria-label="경로">
+              <span><Link href="/">홈</Link></span><span><i>/</i><Link href="/area/">지역</Link></span><span><i>/</i><Link href={hubPath(p.gu)}>{G.name}</Link></span>
+            </nav>
+            <h1>{p.kw}</h1>
+            <p className="hero-lead">{c.lead}</p>
+          </div>
+          <figure className="hero-ph single">
+            <Photo id={c.hero.id} lazy={false} alt={`${p.kw} - ${c.hero.caption}`} />
+            <figcaption>{c.hero.caption}</figcaption>
+          </figure>
+          <div className="hero-bot">
+            <BigCall note={c.callNote} />
+            <dl className="hero-specs">{c.specs.map(([k, v]) => <div key={k}><dt>{k}</dt><dd>{v}</dd></div>)}</dl>
+          </div>
         </div>
       </section>
 
       <section className="sec">
         <div className="wrap">
           <p className="answer" data-reveal>{c.answer}</p>
+          <div className="shots shots-top">
+            {c.photos.map((ph, i) => (
+              <figure key={ph.id} className="mask" data-reveal style={{ transitionDelay: `${i * 90}ms` }}>
+                <Photo id={ph.id} alt={`${p.kw} 참고 사진 - ${ph.caption}`} />
+              </figure>
+            ))}
+          </div>
+          <p className="note shots-note">{c.photoSub}</p>
           <SectionHead title={c.region.heading} />
           <div className="cols">
             <div className="prose" data-reveal>{c.region.paras.map((t, i) => <p key={i}>{t}</p>)}</div>
@@ -117,19 +131,6 @@ export default function KeywordPage({ params }: { params: { slug: string } }) {
             <h3 className="h3-sub" data-reveal>{c.intent.list.title}</h3>
             <ol className="steps-list reveal-group">{c.intent.list.items.map((x) => <li key={x}>{x}</li>)}</ol>
           </>}
-        </div>
-      </section>
-
-      <section className="sec dark">
-        <div className="wrap">
-          <SectionHead title="강철스카이 작업 사진" sub={c.photoSub} />
-          <div className="shots">
-            {c.photos.map((ph, i) => (
-              <figure key={ph.id} className="mask" data-reveal style={{ transitionDelay: `${i * 90}ms` }}>
-                <Photo id={ph.id} alt={`${p.kw} 참고 사진 - ${ph.caption}`} />
-              </figure>
-            ))}
-          </div>
         </div>
       </section>
 
