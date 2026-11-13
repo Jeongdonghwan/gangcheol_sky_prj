@@ -34,7 +34,7 @@ export default function Hub({ params }: { params: { hub: string } }) {
         itemListJsonLd(pages.map((p) => ({ name: p.kw, path: pageEncodedPath(p) }))),
       ]} />
       <PageHead crumbs={[{ name: '홈', href: '/' }, { name: '지역', href: '/area/' }, { name: R.name }]} title={`${R.name} 스카이차 안내`}
-        lead={`${R.full}. ${R.note}`} photoId={R.city === '김포' ? 'c4' : R.city === '부천' ? 'c2' : 'c3'} />
+        lead={`${R.full}. ${R.note}`} />
       <div className="wrap content">
         {labels.map((l) => {
           const L = REGIONS[l];

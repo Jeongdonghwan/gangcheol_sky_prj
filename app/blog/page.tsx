@@ -27,7 +27,7 @@ export default function BlogIndex() {
         itemListJsonLd(posts.length ? posts.map((p) => ({ name: p.title, path: postEncodedPath(p) })) : hubs.map((p) => ({ name: p.kw, path: pageEncodedPath(p) }))),
       ]} />
       <PageHead crumbs={[{ name: '홈', href: '/' }, { name: '블로그' }]} title="스카이차·고소작업 궁금증"
-        lead="상담 전화에서 자주 듣는 질문을 한 편에 하나씩 답합니다. 현장마다 다른 비용·톤수 숫자는 적지 않습니다." photoId="c4" />
+        lead="상담 전화에서 자주 듣는 질문을 한 편에 하나씩 답합니다. 현장마다 다른 비용·톤수 숫자는 적지 않습니다." />
       <div className="wrap content">
         <section className="sec-in">
           <h2 className="h2-plain">최근 글</h2>

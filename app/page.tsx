@@ -5,7 +5,7 @@ import { WORKS } from '../lib/compose';
 import { getPosts, postPath } from '../lib/blog';
 import { breadcrumbJsonLd, faqJsonLd, itemListJsonLd } from '../lib/jsonld';
 import { BRAND, CONTACT, BUSINESS, shareMeta } from '../lib/site';
-import { BigCall, Btn, IconArrow, JsonLd, Photo, SectionHead } from '../components/Common';
+import { BigCall, Btn, HeroBg, IconArrow, JsonLd, Photo, SectionHead } from '../components/Common';
 
 const TITLE = `${BRAND} | 인천·김포·부천 스카이차 임대·대여·작업`;
 const DESC = `인천 검단구 스카이차 업체 ${BRAND}. 외벽·고층, 간판 설치·해체, 유리·샷시, 실리콘, 자재 운반, 중량물 상하차를 기사가 직접 작업합니다. 24시간·연중무휴 ${CONTACT.phone}.`;
@@ -46,25 +46,33 @@ export default function Home() {
       ]} />
 
       <section className="hero hero-home">
+        <HeroBg ids={['p1', 'p3', 'p4', 'p2']} alts={[`${BRAND} 스카이차 - 차체에 010-5575-8225 표기`]} />
         <div className="wrap hero-in">
-          <div className="hero-text">
-            <h1>인천·김포·부천<br />스카이차 임대·작업</h1>
-            <p className="hero-lead">{BRAND}는 인천 검단구에 사업장을 둔 스카이차 업체입니다. 외벽·고층, 간판 설치·해체, 유리·샷시, 실리콘, 자재 운반을 차와 기사가 함께 가서 바스켓에서 직접 합니다.</p>
-            <BigCall />
-            <dl className="hero-specs">
-              <div><dt>사업장</dt><dd>{BUSINESS.address}</dd></div>
-              <div><dt>출장</dt><dd>인천 전지역 · 김포 · 부천</dd></div>
-              <div><dt>상담</dt><dd>{CONTACT.hours}</dd></div>
-            </dl>
-          </div>
-          <figure className="hero-ph">
-            <Photo id="p1" lazy={false} alt={`${BRAND} 스카이차 - 차체에 010-5575-8225 표기`} />
-            <figcaption>{PHOTOS[0].caption}</figcaption>
-          </figure>
+          <h1>인천·김포·부천<br /><em>스카이차 임대·작업</em></h1>
+          <p className="hero-lead">{BRAND}는 인천 검단구에 사업장을 둔 스카이차 업체입니다. 외벽·고층, 간판 설치·해체, 유리·샷시, 실리콘, 자재 운반을 차와 기사가 함께 가서 바스켓에서 직접 합니다.</p>
+          <BigCall />
+          <p className="hero-sub-link"><a href="#works" className="lnk">바스켓 작업 목록 <IconArrow /></a></p>
+          <dl className="hero-specs">
+            <div><dt>사업장</dt><dd>{BUSINESS.address}</dd></div>
+            <div><dt>출장</dt><dd>인천 전지역 · 김포 · 부천</dd></div>
+            <div><dt>상담</dt><dd>{CONTACT.hours}</dd></div>
+          </dl>
+          <p className="hero-cap">{PHOTOS[0].caption}</p>
         </div>
       </section>
 
-      <section className="sec" id="works">
+      <section className="sec steel">
+        <div className="wrap about">
+          <figure className="about-ph mask" data-reveal><Photo id="c1" /></figure>
+          <div>
+            <SectionHead title="임대 · 대여 · 작업 · 출장" sub="차만 보내는 일은 없습니다. 차를 다루는 기사가 함께 갑니다." />
+            <dl className="spec spec-wide" data-reveal>{WAYS.map(([k, v]) => <div key={k}><dt>{k}</dt><dd>{v}</dd></div>)}</dl>
+            <p className="note" data-reveal>보유 차량의 톤수와 작업 높이는 홈페이지에 적혀 있지 않습니다. 작업 층수를 알려 주시면 통화로 맞는 차량을 확인합니다.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="sec gray" id="works">
         <div className="wrap">
           <div className="rail-head">
             <SectionHead title="바스켓에서 하는 작업" sub="홈페이지 영업안내에 적힌 작업 목록 그대로입니다." />
@@ -81,17 +89,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="sec gray">
-        <div className="wrap narrow">
-          <SectionHead title="임대 · 대여 · 작업 · 출장" sub="차만 보내는 일은 없습니다. 차를 다루는 기사가 함께 갑니다." />
-          <dl className="spec spec-wide" data-reveal>{WAYS.map(([k, v]) => <div key={k}><dt>{k}</dt><dd>{v}</dd></div>)}</dl>
-          <p className="note" data-reveal>보유 차량의 톤수와 작업 높이는 홈페이지에 적혀 있지 않습니다. 작업 층수를 알려 주시면 통화로 맞는 차량을 확인합니다.</p>
-        </div>
-      </section>
-
       <section className="sec dark">
         <div className="wrap">
-          <SectionHead title="작업 사진" sub="홈페이지 작업사진 게시판과 인사말·영업안내에 실린 실제 차량입니다. 촬영 장소는 표기되어 있지 않습니다." />
+          <SectionHead center title="작업 사진" sub="홈페이지 작업사진 게시판과 인사말·영업안내에 실린 실제 차량입니다. 촬영 장소는 표기되어 있지 않습니다." />
           <div className="gallery">
             {PHOTOS.map((ph, i) => (
               <figure key={ph.id} className={`mask g-${ph.w >= 560 ? 'w' : 't'}`} data-reveal style={{ transitionDelay: `${(i % 4) * 80}ms`, ['--w' as string]: `${ph.w}px` }}>
@@ -125,9 +125,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="sec gray">
+      <section className="sec steel">
         <div className="wrap">
-          <SectionHead title="상담부터 작업까지" />
+          <SectionHead center title="상담부터 작업까지" />
           <ol className="process reveal-group">
             <li><strong>전화 상담</strong><p>{CONTACT.phone}, 24시간 받습니다.</p></li>
             <li><strong>현장 정보</strong><p>주소·층수·할 일을 말씀해 주세요. 사진은 문자로.</p></li>

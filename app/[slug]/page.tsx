@@ -5,7 +5,7 @@ import { OPEN_PAGES, REGIONS, getPage, pagePath, pageEncodedPath, hubPath, hubEn
 import { compose } from '../../lib/compose';
 import { breadcrumbJsonLd, faqJsonLd, itemListJsonLd, serviceJsonLd } from '../../lib/jsonld';
 import { BRAND, shareMeta } from '../../lib/site';
-import { BigCall, Btn, IconArrow, JsonLd, Photo, SectionHead } from '../../components/Common';
+import { BigCall, Btn, HeroBg, IconArrow, JsonLd, Photo, SectionHead } from '../../components/Common';
 
 export const dynamicParams = false;
 
@@ -47,20 +47,16 @@ export default function KeywordPage({ params }: { params: { slug: string } }) {
       ]} />
 
       <section className="hero">
+        <HeroBg one ids={[c.hero.id]} alts={[`${p.kw} - ${c.hero.caption}`]} />
         <div className="wrap hero-in">
-          <div className="hero-text">
-            <nav className="crumbs" aria-label="경로">
-              <span><Link href="/">홈</Link></span><span><i>/</i><Link href="/area/">지역</Link></span><span><i>/</i><Link href={hubPath(p.gu)}>{G.name}</Link></span>
-            </nav>
-            <h1>{p.kw}</h1>
-            <p className="hero-lead">{c.lead}</p>
-            <BigCall note={c.callNote} />
-            <dl className="hero-specs">{c.specs.map(([k, v]) => <div key={k}><dt>{k}</dt><dd>{v}</dd></div>)}</dl>
-          </div>
-          <figure className="hero-ph">
-            <Photo id={c.hero.id} lazy={false} alt={`${p.kw} - ${c.hero.caption}`} />
-            <figcaption>{c.hero.caption}</figcaption>
-          </figure>
+          <nav className="crumbs" aria-label="경로">
+            <span><Link href="/">홈</Link></span><span><i>/</i><Link href="/area/">지역</Link></span><span><i>/</i><Link href={hubPath(p.gu)}>{G.name}</Link></span>
+          </nav>
+          <h1>{p.kw}</h1>
+          <p className="hero-lead">{c.lead}</p>
+          <BigCall note={c.callNote} />
+          <dl className="hero-specs">{c.specs.map(([k, v]) => <div key={k}><dt>{k}</dt><dd>{v}</dd></div>)}</dl>
+          <p className="hero-cap">{c.hero.caption}</p>
         </div>
       </section>
 
@@ -79,7 +75,7 @@ export default function KeywordPage({ params }: { params: { slug: string } }) {
         </div>
       </section>
 
-      <section className="sec gray" id="works">
+      <section className="sec steel" id="works">
         <div className="wrap">
           <div className="rail-head">
             <SectionHead title={c.works.heading} />

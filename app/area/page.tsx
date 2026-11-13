@@ -23,7 +23,7 @@ export default function AreaIndex() {
         itemListJsonLd(hubs.map((h) => ({ name: `${REGIONS[h].name} 스카이차 안내`, path: hubEncodedPath(h) }))),
       ]} />
       <PageHead crumbs={[{ name: '홈', href: '/' }, { name: '지역' }]} title="지역별 스카이차 안내"
-        lead="인천은 홈페이지 영업안내의 '인천 전지역 및 기타지역 출장상담', 김포·부천은 네이버 플레이스 소개의 '서울·경기·인천 출장' 범위입니다." photoId="c2" />
+        lead="인천은 홈페이지 영업안내의 '인천 전지역 및 기타지역 출장상담', 김포·부천은 네이버 플레이스 소개의 '서울·경기·인천 출장' 범위입니다." />
       <div className="wrap content">
         {hubs.map((h) => {
           const R = REGIONS[h];

@@ -1,4 +1,4 @@
-// 공통 UI — 장비 톤: 검정 + 주황 1색, 모서리 0, 선 아이콘, 이모지 없음.
+// 공통 UI — 강철 남색 다크 톤 + 주황 1색, 모서리 0, 선 아이콘, 이모지 없음. (참고: web_Agency techcorp 헤더·히어로·섹션 리듬)
 import Link from 'next/link';
 import { BRAND, CONTACT, BUSINESS, tel, smsHref } from '../lib/site';
 import { photo } from '../lib/data';
@@ -31,26 +31,32 @@ export const Photo = ({ id, className, lazy = true, alt }: { id: string; classNa
   return <img src={`/img/${id}.webp`} className={className} alt={alt || `${BRAND} 스카이차 작업 사진 - ${p.caption}`} width={p.w} height={p.h} loading={lazy ? 'lazy' : undefined} />;
 };
 
-export const SectionHead = ({ title, sub }: { title: string; sub?: string }) => (
-  <header className="sh" data-reveal>
+export const SectionHead = ({ title, sub, center = false }: { title: string; sub?: string; center?: boolean }) => (
+  <header className={center ? 'sh sh-c' : 'sh'} data-reveal>
     <h2>{title}</h2>
     {sub && <p>{sub}</p>}
   </header>
 );
 
-// 허브·블로그 머리 — 검정 띠, 오른쪽에 작은 실차 사진(원본 크기 이하)
-export const PageHead = ({ crumbs, title, lead, photoId = 'c3' }: { crumbs: { name: string; href?: string }[]; title: string; lead?: string; photoId?: string }) => (
-  <section className="phead">
-    <div className="wrap phead-in">
-      <div>
-        <nav className="crumbs" aria-label="경로">
-          {crumbs.map((c, i) => <span key={i}>{i > 0 && <i>/</i>}{c.href ? <Link href={c.href}>{c.name}</Link> : c.name}</span>)}
-        </nav>
-        <h1>{title}</h1>
-        {lead && <p className="phead-lead">{lead}</p>}
-        <Btn />
-      </div>
-      <figure className="phead-ph"><Photo id={photoId} lazy={false} /></figure>
+// 히어로 배경 — 실제 사진을 원본 높이 가까이 이어 붙이고(늘리지 않음) 위에 어둡게 깐다
+export const HeroBg = ({ ids, alts = [], one = false }: { ids: string[]; alts?: string[]; one?: boolean }) => (
+  <div className={one ? 'hero-bg one' : 'hero-bg'}>
+    <div className="hero-strip">{ids.map((id, i) => <Photo key={id} id={id} lazy={false} alt={alts[i]} />)}</div>
+    <span className="hero-shade" aria-hidden="true" />
+  </div>
+);
+
+// 허브·블로그 머리 — 사진 띠 배경 + 빵부스러기 (참고: 페이지 상단 사진 배너)
+export const PageHead = ({ crumbs, title, lead }: { crumbs: { name: string; href?: string }[]; title: string; lead?: string }) => (
+  <section className="hero hero-sub">
+    <HeroBg ids={['p5', 'p6', 'p7', 'p2']} />
+    <div className="wrap hero-in">
+      <nav className="crumbs" aria-label="경로">
+        {crumbs.map((c, i) => <span key={i}>{i > 0 && <i>/</i>}{c.href ? <Link href={c.href}>{c.name}</Link> : c.name}</span>)}
+      </nav>
+      <h1>{title}</h1>
+      {lead && <p className="hero-lead">{lead}</p>}
+      <Btn />
     </div>
   </section>
 );
@@ -79,10 +85,13 @@ export const Header = () => (
 export const Footer = () => (
   <footer className="site-footer">
     <div className="wrap foot-grid">
-      <div>
-        <strong className="foot-brand">{BRAND}</strong>
+      <div className="foot-about">
+        <Logo />
         <p>스카이차 임대 · 대여 · 작업 · 출장<br />외벽 · 고층 · 간판 설치·해체 · 유리·샷시 · 실리콘 · 자재 운반 · 중량물 상하차 · 바스켓 페인트 · 조경·절단</p>
-        <p><Link href="/area/">지역 안내</Link> · <Link href="/blog/">블로그</Link> · <a href="/rss.xml">RSS</a></p>
+      </div>
+      <div className="foot-links">
+        <strong>바로가기</strong>
+        <p><Link href="/area/">지역 안내</Link><Link href="/blog/">블로그</Link><a href="/rss.xml">RSS</a></p>
       </div>
       <dl className="foot-info">
         <div><dt>상호</dt><dd>{BRAND}</dd></div>

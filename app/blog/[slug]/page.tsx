@@ -57,7 +57,7 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
           author: { '@id': `${SITE_URL}/#business` }, publisher: { '@id': `${SITE_URL}/#business` }, keywords: p.keyword,
         },
       ]} />
-      <PageHead crumbs={[{ name: '홈', href: '/' }, { name: '블로그', href: '/blog/' }]} title={p.title} lead={`${fmt(p.publishedAt)} · ${BRAND}`} photoId="c3" />
+      <PageHead crumbs={[{ name: '홈', href: '/' }, { name: '블로그', href: '/blog/' }]} title={p.title} lead={`${fmt(p.publishedAt)} · ${BRAND}`} />
       <div className="wrap content">
         <article className="prose post">
           {p.sections.map((s) => (
