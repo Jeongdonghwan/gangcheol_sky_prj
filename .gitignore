@@ -5,3 +5,4 @@ public/og
 __pycache__/
 tsconfig.tsbuildinfo
 _preview/
+.lastmod.json

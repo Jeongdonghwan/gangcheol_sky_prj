@@ -1,6 +1,6 @@
 // 공통 UI — 강철 남색 다크 톤 + 주황 1색, 모서리 0, 선 아이콘, 이모지 없음. (참고: web_Agency techcorp 헤더·히어로·섹션 리듬)
 import Link from 'next/link';
-import { BRAND, CONTACT, BUSINESS, tel, smsHref } from '../lib/site';
+import { BRAND, CONTACT, BUSINESS, UPDATED, tel, smsHref } from '../lib/site';
 import { photo } from '../lib/data';
 
 export const JsonLd = ({ data }: { data: object | object[] }) => (
@@ -91,7 +91,7 @@ export const Footer = () => (
       </div>
       <div className="foot-links">
         <strong>바로가기</strong>
-        <p><Link href="/area/">지역 안내</Link><Link href="/blog/">블로그</Link><a href="/rss.xml">RSS</a></p>
+        <p><Link href="/about/">소개</Link><Link href="/area/">지역 안내</Link><Link href="/blog/">블로그</Link><a href="/rss.xml">RSS</a></p>
       </div>
       <dl className="foot-info">
         <div><dt>상호</dt><dd>{BRAND}</dd></div>
@@ -101,7 +101,7 @@ export const Footer = () => (
         {BUSINESS.bizNumber && <div><dt>사업자</dt><dd>{BUSINESS.bizNumber}</dd></div>}
       </dl>
     </div>
-    <div className="wrap foot-bottom">© {new Date().getFullYear()} {BRAND} · 상담 때 받은 주소·연락처는 출장 안내에만 씁니다.</div>
+    <div className="wrap foot-bottom">© {new Date().getFullYear()} {BRAND} · 최종 수정 <time dateTime={UPDATED}>{UPDATED}</time> · 상담 때 받은 주소·연락처는 출장 안내에만 씁니다.</div>
   </footer>
 );
 
