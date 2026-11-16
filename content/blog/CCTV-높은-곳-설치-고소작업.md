@@ -4,8 +4,8 @@ title: CCTV 높은 곳 설치 고소작업, 올라가기 전에 위치와 선 �
 description: CCTV를 높은 곳에 달 때는 설치 업체가 카메라와 배선을 맡고 높은 곳 장비가 작업자를 올려 주며, 올라간 뒤 헤매지 않도록 달 위치와 비출 방향, 선이 지나갈 길, 전원 자리를 땅에서 미리 정해 두어야 합니다.
 keyword: CCTV 높은 곳 설치 고소작업
 pattern: repair
-date:
-publishedAt:
+date: 2026-11-22
+publishedAt: 2026-11-22
 ---
 
 ## 땅에서 정할 것을 다 정하고 올라갑니다
