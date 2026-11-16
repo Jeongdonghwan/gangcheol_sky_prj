@@ -1,4 +1,4 @@
-import { SITE_URL, SITE_NAME, BRAND, CONTACT, BUSINESS } from './site';
+import { SITE_URL, SITE_NAME, BRAND, CONTACT, BUSINESS, UPDATED } from './site';
 
 // 업체 — 주소는 네이버 플레이스(2026-07 개편 기준 검단구). 영업시간 24시간·연중무휴(플레이스)
 export const businessJsonLd = () => ({
@@ -46,6 +46,7 @@ export const serviceJsonLd = (o: { name: string; description: string; path: stri
   description: o.description,
   url: `${SITE_URL}${o.path}`,
   areaServed: { '@type': 'Place', name: o.area },
+  dateModified: UPDATED,
   provider: { '@id': `${SITE_URL}/#business` },
 });
 
