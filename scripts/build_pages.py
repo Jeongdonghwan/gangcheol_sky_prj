@@ -22,7 +22,7 @@ from rebatch import rebatch  # noqa: E402
 ROOT = HERE.parent
 SRC = ROOT / 'keywords' / '강철스카이_키워드.xlsx'
 OUT_XLSX = ROOT / 'keywords' / '강철스카이_페이지.xlsx'
-SITE_URL = 'http://127.0.0.1:18991'  # 도메인 확정 후 lib/site.ts 와 같이 바꾼다
+SITE_URL = 'https://xn--939av14bvmdjng5qc.kr'  # 도메인 확정 후 lib/site.ts 와 같이 바꾼다
 
 # 엑셀 '단어' → 조합기(lib/compose.ts EQ) 키
 EQ = {'스카이': 'sky', '스카이차': 'sky', '스카이차량': 'sky', '고소작업차': 'aerial',

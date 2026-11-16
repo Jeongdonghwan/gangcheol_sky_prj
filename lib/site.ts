@@ -4,7 +4,7 @@
 //   영업시간: 플레이스 '24시간 영업 · 연중무휴'. 장비 톤수·작업 높이·대수는 어디에도 없어 쓰지 않는다.
 
 // 도메인 미정 — 확정되면 SITE_URL 과 data/drip.json siteUrl 을 같이 바꾼다
-export const SITE_URL = process.env.SITE_URL || 'http://127.0.0.1:18991';
+export const SITE_URL = process.env.SITE_URL || 'https://xn--939av14bvmdjng5qc.kr';
 export const BRAND = '강철스카이';
 export const SITE_NAME = `${BRAND} | 인천·김포·부천 스카이차 임대·작업`;
 

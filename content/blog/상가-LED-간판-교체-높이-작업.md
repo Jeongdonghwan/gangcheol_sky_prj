@@ -4,8 +4,8 @@ title: 상가 LED 간판 교체 높이 작업, 장비 고르는 기준과 준비
 description: 상가 LED 간판 교체 높이 작업은 간판이 걸린 층과 차를 세울 거리로 장비를 정하고, 전기 연결과 점등 확인까지 한 번에 끝낼 수 있도록 간판 제작 업체와 일정을 맞추는 것이 핵심입니다.
 keyword: 상가 LED 간판 교체 높이 작업
 pattern: sign
-date:
-publishedAt:
+date: 2026-11-16
+publishedAt: 2026-11-16
 ---
 
 ## 장비는 높이와 거리로 정합니다

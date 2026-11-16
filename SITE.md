@@ -42,9 +42,9 @@ python -I scripts/drip/schedule_posts.py <오픈일>      # 블로그 45편 date
 ## 로컬 미리보기 (포트 18991)
 ```bash
 OPEN_WAVE=4 npx next build && python -I scripts/make_og.py
-cd out && python -m http.server 18991     # http://127.0.0.1:18991/  (file:// 로 열면 CSS 경로가 깨짐)
+cd out && python -m http.server 18991     # https://xn--939av14bvmdjng5qc.kr/  (file:// 로 열면 CSS 경로가 깨짐)
 ```
-한글 경로는 브라우저가 인코딩해 요청하므로 그대로 열린다(예: http://127.0.0.1:18991/김포-스카이/). 확인 뒤 서버는 Ctrl+C.
+한글 경로는 브라우저가 인코딩해 요청하므로 그대로 열린다(예: https://xn--939av14bvmdjng5qc.kr/김포-스카이/). 확인 뒤 서버는 Ctrl+C.
 
 ## 데이터 근거 (지어낸 수치 없음) — `source/facts.md`
 - 홈페이지 01055758225.m7114.kr(2026-11-12 수집): 상호 강철스카이, 010-5575-8225, 주소 '인천광역시 서구 서로3로 255', 영업안내 작업 목록, "인천 전지역 및 기타지역 등 출장상담", 인사말 "인천지역을 중심으로", "전문기술자를 파견해 직접 작업"
@@ -77,7 +77,7 @@ cd out && python -m http.server 18991     # http://127.0.0.1:18991/  (file:// �
 - 블로그 45편 `validate_posts.py --draft --min 1300 --max 2000 --known-paths content/blog/_data/known_paths.txt` 통과(내부링크는 1묶음 공개 경로만)
 
 ## 사용자 확인 필요 → `lib/site.ts`, `data/drip.json`
-- [ ] 도메인 (지금 `http://127.0.0.1:18991` 임시 — SITE_URL·drip.json siteUrl·build_pages.py SITE_URL)
+- [ ] 도메인 (지금 `https://xn--939av14bvmdjng5qc.kr` 임시 — SITE_URL·drip.json siteUrl·build_pages.py SITE_URL)
 - [ ] 오픈일 → `python -I scripts/drip/schedule_posts.py <오픈일>` (drip.json launch 도 채움)
 - [ ] 보유 차량 톤수·작업 높이(알려 주시면 톤수 페이지 문구를 사실로 바꿈)
 - [ ] 사업자등록번호, 대표 이름
