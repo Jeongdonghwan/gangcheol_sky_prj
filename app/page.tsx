@@ -8,7 +8,7 @@ import { BRAND, CONTACT, shareMeta } from '../lib/site';
 import { BigCall, Btn, IconArrow, JsonLd, Photo, SectionHead } from '../components/Common';
 
 const TITLE = `${BRAND} | 인천·김포·부천 스카이차 임대·대여·작업`;
-const DESC = `인천·김포·부천 스카이차 업체 ${BRAND}. 외벽·고층, 간판 설치·해체, 유리·샷시, 실리콘, 자재 운반, 중량물 상하차를 기사가 직접 작업합니다. 24시간·연중무휴 ${CONTACT.phone}.`;
+const DESC = `인천·김포·부천 스카이차 ${BRAND}. 외벽·간판·유리·샷시 작업과 자재 운반을 기사가 직접, 24시간·연중무휴 ${CONTACT.phone}.`;
 export const metadata: Metadata = {
   title: TITLE,
   description: DESC,
