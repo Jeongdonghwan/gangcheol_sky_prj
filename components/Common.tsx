@@ -18,7 +18,7 @@ export const IconArrow = () => <Svg d="M4 12h15M13 6l6 6-6 6" size={16} />;
 export const BigCall = ({ note }: { note?: string }) => (
   <div className="bigcall">
     <a className="bigcall-num" href={tel} aria-label={`전화 ${CONTACT.phone}`}><IconPhone size={26} /><span>{CONTACT.phone}</span></a>
-    <p className="bigcall-note">{note || `${CONTACT.hours} 상담`} · <a className="lnk" href={smsHref}>현장 사진 문자로 보내기</a></p>
+    <div className="bigcall-note">{note || `${CONTACT.hours} 상담`} · <a className="lnk" href={smsHref}>현장 사진 문자로 보내기</a></div>
   </div>
 );
 

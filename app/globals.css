@@ -350,3 +350,28 @@ figcaption { font-size: .82rem; margin-top: 8px; color: var(--muted); }
   .js .mask img { clip-path: none; }
   html { scroll-behavior: auto; }
 }
+
+/* ---------- 키워드 페이지: h1 수식어 + 레이 모범 구조 (2026-11-24) ---------- */
+.x-cat { margin: 14px 0 0; font-size: .82rem; font-weight: 600; letter-spacing: .04em; color: var(--or); }
+.hero h1 .hero-sub { display: block; margin-top: 12px; font-size: .42em; font-weight: 600; line-height: 1.45; letter-spacing: -0.02em; color: var(--muted); }
+.x-grid { display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 56px; align-items: start; }
+.x-sum { border-top: 2px solid var(--fg); border-left: 4px solid var(--or); background: var(--gray); padding: 26px 28px 24px; margin-bottom: 20px; }
+.x-sum h2 { margin: 0 0 10px; font-size: 1.22rem; }
+.x-sum p { margin: 0 0 20px; line-height: 1.85; }
+.x-sum dl, .x-side dl { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 24px; margin: 0; }
+.x-sum dt, .x-side dt { font-size: .76rem; font-weight: 600; color: var(--muted); }
+.x-sum dd, .x-side dd { margin: 2px 0 0; font-weight: 700; font-size: .95rem; }
+.x-article section { padding: 30px 0 6px; border-bottom: 1px solid var(--line); }
+.x-article h2 { margin: 0 0 12px; font-size: clamp(1.18rem, 2.4vw, 1.45rem); line-height: 1.4; }
+.x-article p { margin: 0 0 22px; font-size: 1.04rem; line-height: 1.9; max-width: 720px; }
+.x-photos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 32px 0 8px; }
+.x-photos figure { margin: 0; aspect-ratio: 4 / 3; overflow: hidden; background: var(--gray); }
+.x-photos img { width: 100%; height: 100%; object-fit: cover; }
+.x-faq { margin-top: 40px; }
+.x-faq h2 { margin: 0 0 16px; font-size: 1.45rem; }
+.x-side { position: sticky; top: 96px; border: 1px solid var(--line); border-top: 4px solid var(--or); padding: 22px; display: grid; gap: 14px; }
+.x-side h3 { margin: 0; font-size: 1.02rem; }
+.x-side dl { grid-template-columns: 1fr; }
+.x-side .btn { justify-content: center; }
+@media (max-width: 900px) { .x-grid { grid-template-columns: 1fr; gap: 32px; } .x-side { position: static; } .x-sum { padding: 22px 18px; } .x-sum dl { grid-template-columns: 1fr; } }
+@media (max-width: 560px) { .x-photos { grid-template-columns: 1fr 1fr; } .x-photos figure:last-child { display: none; } }
