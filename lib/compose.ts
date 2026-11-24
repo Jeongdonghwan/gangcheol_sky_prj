@@ -415,7 +415,9 @@ export function compose(p: Page) {
   ];
   const h1k = seedOf(`${s}::h1`) % h1subs.length;
   const h1sub = [...h1subs.slice(h1k), ...h1subs.slice(0, h1k)].find((x) => `${p.kw} ${x}`.length <= 40) || '기사 동행 출장';
-  const title = `${p.kw} ${h1sub} | ${BRAND}`; // 앞부분은 h1 글자와 같다. 상호는 끝에 한 번
+  // title 전체 40자 이하(네이버 권장): 앞부분은 h1 글자와 같고, 상호를 붙여 40자를 넘으면 상호를 뺀다
+  const title0 = `${p.kw} ${h1sub}`;
+  const title = `${title0} | ${BRAND}`.length <= 40 ? `${title0} | ${BRAND}` : title0;
   const sents = (t: string) => t.split(/(?<=[.?!])\s+/).map((x) => x.trim()).filter(Boolean);
   const len = (t: string) => t.replace(/\s/g, '').length;
   // 문장을 이어 붙여 한 문단 210~280자(공백 제외)로
