@@ -357,8 +357,6 @@ export function compose(p: Page) {
   const R = REGIONS[p.label];
   const s = p.slug;
   const w = R.name;
-  let title = `${p.kw} | ${BRAND} ${MOD_TITLE[p.mod] ?? ''}`.trim();
-  if (title.length > 58) title = `${p.kw} | ${BRAND}`;
 
   const jobs = [...R.jobs, ...rotate(WORKS.map((x) => x.key).filter((k) => !R.jobs.includes(k)), s, 'jobs')].slice(0, 5);
   const works = jobs.map((k, i) => {
@@ -408,12 +406,16 @@ export function compose(p: Page) {
   const stems = [w, ...p.kw.split(' ')].map((x) => x.replace(/(시|군|구|동|읍|면)$/, '')).filter((x) => x.length >= 2);
   const spAll = R.spots.length ? R.spots : REGIONS[R.gu].spots;
   const sp = rotate(spAll.filter((x) => !stems.some((t) => x.includes(t))), s, 'h1sp');
-  const h1sub = pick([
+  // h1 수식어 = title 앞부분. '키워드 수식어'가 40자 이하인 벌을 해시 순서대로 고르고, 없으면 짧은 벌
+  const h1subs = [
     MOD_TITLE[p.mod] || '외벽·간판·유리 높은 곳 작업',
     `${jn[0]}부터 ${jn[1] || '간판 설치·해체'}까지`,
     sp.length ? `${sp[0]} 건물 바스켓 작업 출장` : `기사 동행 ${jn[0]}`,
     `기사 동행 ${jn[0]}`,
-  ], s, 'h1');
+  ];
+  const h1k = seedOf(`${s}::h1`) % h1subs.length;
+  const h1sub = [...h1subs.slice(h1k), ...h1subs.slice(0, h1k)].find((x) => `${p.kw} ${x}`.length <= 40) || '기사 동행 출장';
+  const title = `${p.kw} ${h1sub} | ${BRAND}`; // 앞부분은 h1 글자와 같다. 상호는 끝에 한 번
   const sents = (t: string) => t.split(/(?<=[.?!])\s+/).map((x) => x.trim()).filter(Boolean);
   const len = (t: string) => t.replace(/\s/g, '').length;
   // 문장을 이어 붙여 한 문단 210~280자(공백 제외)로
